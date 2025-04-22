@@ -12,8 +12,8 @@ namespace TaskPeak.Domain.Entities
         public DateTime DataPoczatkowa { get; set; }
         public DateTime DataKoncowa { get; set; }
 
-        public Pracownik Pracownik { get; set; }
-        public string IdPracownika { get; set; }
-        
+        public Pracownik Pracownik { get; set; } = default!;
+        public string IdPracownika { get; set; } = default!;
+
     }
 }

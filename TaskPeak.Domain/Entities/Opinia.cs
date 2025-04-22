@@ -10,9 +10,9 @@ namespace TaskPeak.Domain.Entities
     {
         public int Id { get; set; }
         public float IloscGwiazdek { get; set; }
-        public string Tresc { get; set; }
+        public string? Tresc { get; set; }
 
-        public string IdKlienta { get; set; }
-        public Klient Klient { get; set; }
+        public string IdKlienta { get; set; } = default!;
+        public Klient Klient { get; set; } = default!;
     }
 }

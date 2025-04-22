@@ -8,10 +8,9 @@ namespace TaskPeak.Domain.Entities
 {
     public class Adres
     {
-        public string Miasto { get; set; }
-        public string Ulica { get; set; }
-        public string NrDomu { get; set; }
-        public string NrLokalu { get; set; }
-        public string KodPocztowy { get; set; }
+        public string Miasto { get; set; } = default!;
+        public string Ulica { get; set; } = default!;
+        public string NrDomu_Lokalu { get; set; } = default!;
+        public string KodPocztowy { get; set; } = default!;
     }
 }

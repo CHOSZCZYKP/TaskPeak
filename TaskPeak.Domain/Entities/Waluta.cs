@@ -9,6 +9,6 @@ namespace TaskPeak.Domain.Entities
     public class Waluta
     {
         public decimal Wartosc { get; set; }
-        public string Nazwa { get; set; }
+        public string Nazwa { get; set; } = default!;
     }
 }
