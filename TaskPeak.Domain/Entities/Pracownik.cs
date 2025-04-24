@@ -16,6 +16,7 @@ namespace TaskPeak.Domain.Entities
 
         public ICollection<Urlop>? Urlopy { get; set; }
         public ICollection<DziennyRaport>? DzienneRaporty { get; set; }
+        public ICollection<Zadanie>? Zadania { get; set; }
 
     }
 }

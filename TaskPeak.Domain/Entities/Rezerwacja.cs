@@ -16,6 +16,8 @@ namespace TaskPeak.Domain.Entities
 
         public int IdUslugi { get; set; }
         public Usluga Usluga { get; set; } = default!;
+        public Klient Klient { get; set; } = default!;
+        public string IdKlienta { get; set; } = default!;
 
     }
 }

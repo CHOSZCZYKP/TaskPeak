@@ -20,5 +20,6 @@ namespace TaskPeak.Domain.Entities
         public ICollection<Opinia>? Opinie { get; set; }
         public ICollection<Zgloszenie>? Zgloszenia { get; set; }
         public ICollection<Faktura>? Faktury { get; set; }
+        public ICollection<Rezerwacja>? Rezerwacje { get; set; }
     }
 }
