@@ -7,7 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.15">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TaskPeak.Application\TaskPeak.Application.csproj" />
+    <ProjectReference Include="..\TaskPeak.Infrastructure\TaskPeak.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -22,9 +22,15 @@ namespace TaskPeak.Infrastructure.Data.Configurations
             builder.Property(p => p.DataZatrudnienia)
                 .IsRequired();
 
-            builder.Property(p => p.StawkaZaGodz)
-                .IsRequired()
-                .HasMaxLength(8);
+            builder.OwnsOne(p => p.StawkaZaGodz, cmb =>
+            {
+                cmb.Property(w => w.Wartosc)
+                    .HasPrecision(10, 2)
+                    .IsRequired();
+                cmb.Property(w => w.Nazwa)
+                    .IsRequired()
+                    .HasMaxLength(3);
+            });
 
             builder.HasOne(p => p.Uzytkownik)
                 .WithOne(u => u.Pracownik)

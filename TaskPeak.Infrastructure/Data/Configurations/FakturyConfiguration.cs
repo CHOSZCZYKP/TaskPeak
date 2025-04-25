@@ -15,7 +15,7 @@ namespace TaskPeak.Infrastructure.Data.Configurations
         {
             builder.HasKey(f => f.Id);
 
-            builder.Property(f => f)
+            builder.Property(f => f.Id)
                 .IsRequired();
 
             builder.Property(f => f.NrFaktury)
