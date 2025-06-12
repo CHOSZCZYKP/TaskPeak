@@ -24,7 +24,7 @@ namespace TaskPeak.Infrastructure.Data
         public DbSet<Opinia> Opinie { get; set; }
         public DbSet<PozycjaFaktury> PozycjeFaktura { get; set; }
         public DbSet<Pracownik> Pracownicy { get; set; }
-        public DbSet<Rezerwacja> Rezerwacje { get; set; }
+        public DbSet<Zlecenie> Zlecenia { get; set; }
         public DbSet<Urlop> Urlopy { get; set; }
         public DbSet<Usluga> Uslugi { get; set; }
         public DbSet<Uzytkownik> Uzytkownicy { get; set; }

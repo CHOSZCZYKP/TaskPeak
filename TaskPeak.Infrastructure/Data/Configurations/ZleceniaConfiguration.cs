@@ -9,16 +9,16 @@ using TaskPeak.Domain.Entities;
 
 namespace TaskPeak.Infrastructure.Data.Configurations
 {
-    public class RezerwacjeConfiguration : IEntityTypeConfiguration<Rezerwacja>
+    public class ZleceniaConfiguration : IEntityTypeConfiguration<Zlecenie>
     {
-        public void Configure(EntityTypeBuilder<Rezerwacja> builder)
+        public void Configure(EntityTypeBuilder<Zlecenie> builder)
         {
             builder.HasKey(r => r.Id);
 
             builder.Property(r => r.Id)
                 .IsRequired();
 
-            builder.Property(r => r.DataRezerwacji)
+            builder.Property(r => r.DataZlecenia)
                 .IsRequired();
 
             builder.Property(r => r.Status)

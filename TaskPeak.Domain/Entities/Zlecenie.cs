@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace TaskPeak.Domain.Entities
 {
-    public class Rezerwacja
+    public class Zlecenie
     {
         public int Id { get; set; }
-        public DateTime DataRezerwacji { get; set; }
+        public DateTime DataZlecenia { get; set; }
         public string Status { get; set; } = default!; //status klienta zamówienia
 
-        public ICollection<Zadanie>? Zadania { get; set; }
+        public ICollection<Zadanie> Zadania { get; set; } = new List<Zadanie>();
 
         public int IdUslugi { get; set; }
         public Usluga Usluga { get; set; } = default!;

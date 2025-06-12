@@ -22,6 +22,6 @@ namespace TaskPeak.Domain.Entities
         public string IdKlienta { get; set; } = default!;
         public Klient Klient { get; set; } = default!;
 
-        public ICollection<PozycjaFaktury>? PozycjeFaktury { get; set; }
+        public ICollection<PozycjaFaktury> PozycjeFaktury { get; set; } = new List<PozycjaFaktury>();
     }
 }

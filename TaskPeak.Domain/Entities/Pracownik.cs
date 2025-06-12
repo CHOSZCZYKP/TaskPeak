@@ -14,9 +14,9 @@ namespace TaskPeak.Domain.Entities
 
         public Uzytkownik Uzytkownik { get; set; } = default!;
 
-        public ICollection<Urlop>? Urlopy { get; set; }
-        public ICollection<DziennyRaport>? DzienneRaporty { get; set; }
-        public ICollection<Zadanie>? Zadania { get; set; }
+        public ICollection<Urlop> Urlopy { get; set; } = new List<Urlop>();
+        public ICollection<DziennyRaport> DzienneRaporty { get; set; } = new List<DziennyRaport>();
+        public ICollection<Zadanie> Zadania { get; set; } = new List<Zadanie>();
 
     }
 }

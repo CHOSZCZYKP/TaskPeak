@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaskPeak.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using TaskPeak.Infrastructure.Data;
 namespace TaskPeak.Infrastructure.Migrations
 {
     [DbContext(typeof(TaskPeakDbContext))]
-    partial class TaskPeakDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250612160355_ZmianaRezerwacjiNaZlecenia")]
+    partial class ZmianaRezerwacjiNaZlecenia
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
