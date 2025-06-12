@@ -401,6 +401,39 @@ namespace TaskPeak.Infrastructure.Migrations
                     b.ToTable("Pracownicy");
                 });
 
+            modelBuilder.Entity("TaskPeak.Domain.Entities.Rezerwacja", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("DataRezerwacji")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("IdKlienta")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("IdUslugi")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdKlienta");
+
+                    b.HasIndex("IdUslugi");
+
+                    b.ToTable("Rezerwacje");
+                });
+
             modelBuilder.Entity("TaskPeak.Domain.Entities.Urlop", b =>
                 {
                     b.Property<int>("Id")
@@ -520,39 +553,6 @@ namespace TaskPeak.Infrastructure.Migrations
                     b.HasIndex("IdKlienta");
 
                     b.ToTable("Zgloszenia");
-                });
-
-            modelBuilder.Entity("TaskPeak.Domain.Entities.Zlecenie", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DataZlecenia")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("IdKlienta")
-                        .IsRequired()
-                        .HasMaxLength(450)
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("IdUslugi")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdKlienta");
-
-                    b.HasIndex("IdUslugi");
-
-                    b.ToTable("Zlecenia");
                 });
 
             modelBuilder.Entity("TaskPeak.Domain.Entities.Uzytkownik", b =>
@@ -842,6 +842,25 @@ namespace TaskPeak.Infrastructure.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("TaskPeak.Domain.Entities.Rezerwacja", b =>
+                {
+                    b.HasOne("TaskPeak.Domain.Entities.Klient", "Klient")
+                        .WithMany("Rezerwacje")
+                        .HasForeignKey("IdKlienta")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TaskPeak.Domain.Entities.Usluga", "Usluga")
+                        .WithMany("Rezerwacje")
+                        .HasForeignKey("IdUslugi")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Klient");
+
+                    b.Navigation("Usluga");
+                });
+
             modelBuilder.Entity("TaskPeak.Domain.Entities.Urlop", b =>
                 {
                     b.HasOne("TaskPeak.Domain.Entities.Pracownik", "Pracownik")
@@ -889,7 +908,7 @@ namespace TaskPeak.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TaskPeak.Domain.Entities.Zlecenie", "Rezerwacja")
+                    b.HasOne("TaskPeak.Domain.Entities.Rezerwacja", "Rezerwacja")
                         .WithMany("Zadania")
                         .HasForeignKey("IdRezerwacji")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -909,25 +928,6 @@ namespace TaskPeak.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Klient");
-                });
-
-            modelBuilder.Entity("TaskPeak.Domain.Entities.Zlecenie", b =>
-                {
-                    b.HasOne("TaskPeak.Domain.Entities.Klient", "Klient")
-                        .WithMany("Rezerwacje")
-                        .HasForeignKey("IdKlienta")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TaskPeak.Domain.Entities.Usluga", "Usluga")
-                        .WithMany("Rezerwacje")
-                        .HasForeignKey("IdUslugi")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Klient");
-
-                    b.Navigation("Usluga");
                 });
 
             modelBuilder.Entity("TaskPeak.Domain.Entities.Uzytkownik", b =>
@@ -980,16 +980,16 @@ namespace TaskPeak.Infrastructure.Migrations
                     b.Navigation("Zadania");
                 });
 
+            modelBuilder.Entity("TaskPeak.Domain.Entities.Rezerwacja", b =>
+                {
+                    b.Navigation("Zadania");
+                });
+
             modelBuilder.Entity("TaskPeak.Domain.Entities.Usluga", b =>
                 {
                     b.Navigation("PozycjeFaktur");
 
                     b.Navigation("Rezerwacje");
-                });
-
-            modelBuilder.Entity("TaskPeak.Domain.Entities.Zlecenie", b =>
-                {
-                    b.Navigation("Zadania");
                 });
 #pragma warning restore 612, 618
         }

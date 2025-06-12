@@ -17,9 +17,9 @@ namespace TaskPeak.Domain.Entities
 
         public Uzytkownik Uzytkownik { get; set; } = default!;
 
-        public ICollection<Opinia> Opinie { get; set; } = new List<Opinia>();
-        public ICollection<Zgloszenie> Zgloszenia { get; set; } = new List<Zgloszenie>();
-        public ICollection<Faktura> Faktury { get; set; } = new List<Faktura>();
-        public ICollection<Zlecenie> Rezerwacje { get; set; } = new List<Zlecenie>();
+        public ICollection<Opinia>? Opinie { get; set; }
+        public ICollection<Zgloszenie>? Zgloszenia { get; set; }
+        public ICollection<Faktura>? Faktury { get; set; }
+        public ICollection<Rezerwacja>? Rezerwacje { get; set; }
     }
 }

@@ -17,6 +17,6 @@ namespace TaskPeak.Domain.Entities
         public Pracownik Pracownik { get; set; } = default!;
 
         public int IdRezerwacji { get; set; }
-        public Zlecenie Rezerwacja { get; set; } = default!;
+        public Rezerwacja Rezerwacja { get; set; } = default!;
     }
 }

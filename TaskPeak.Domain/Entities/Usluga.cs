@@ -14,7 +14,7 @@ namespace TaskPeak.Domain.Entities
         public Waluta CenaNetto { get; set; } = default!;
         public decimal StawkaVat { get; set; }
 
-        public ICollection<PozycjaFaktury> PozycjeFaktur { get; set; } = new List<PozycjaFaktury>();
-        public ICollection<Zlecenie> Rezerwacje { get; set; } = new List<Zlecenie>();
+        public ICollection<PozycjaFaktury>? PozycjeFaktur { get; set; }
+        public ICollection<Rezerwacja>? Rezerwacje { get; set; }
     }
 }
